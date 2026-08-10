@@ -10,13 +10,16 @@ trabalhar sobre o código em **`src/`**.
 ```
 .
 ├── .github/
-│   ├── copilot-instructions.md   # regras da casa: código fica em src/, use as skills
+│   ├── copilot-instructions.md   # regras da casa do Copilot: código em src/, use as skills
 │   └── skills/                    # 29 skills do Matt Pocock (layout que o Copilot exige)
 │       ├── tdd/SKILL.md
 │       ├── code-review/SKILL.md
 │       └── ...
+├── .cursor/
+│   ├── rules/project.mdc          # regras da casa do Cursor (alwaysApply)
+│   └── skills/                    # mesmas 29 skills, no local que o Cursor lê
 ├── src/                           # ← seu código de aplicação vai aqui
-├── AGENTS.md                      # espelho das regras para outros agentes (Codex, Cursor…)
+├── AGENTS.md                      # espelho das regras para outros agentes (Codex, Claude Code…)
 ├── CONTEXT.md                     # linguagem ubíqua do projeto (preencha ao começar)
 └── README.md
 ```
@@ -31,8 +34,22 @@ O Copilot descobre skills automaticamente em `.github/skills/`. Cada skill é um
   a tarefa combina com a `description` delas.
 
 Funciona no Copilot em **Agent Mode (VS Code / JetBrains)**, **Copilot CLI**, **code review** e
-no **cloud agent**. Como os arquivos seguem o padrão `SKILL.md`, também funcionam em Claude Code,
-Codex e Cursor (que leem `.claude/skills/`, `.agents/skills/` ou o `AGENTS.md`).
+no **cloud agent**.
+
+## Como o Cursor enxerga as skills
+
+As mesmas 29 skills estão espelhadas em **`.cursor/skills/`** (local nativo que o Cursor lê, no
+editor e na CLI). As "regras da casa" ficam em **`.cursor/rules/project.mdc`** (`alwaysApply`),
+espelhando o `copilot-instructions.md` (respostas em pt-BR, código em `src/`, use as skills).
+
+- **Slash command:** digite `/` no chat do Agent e busque a skill (`/tdd`, `/code-review`…).
+- **Automático:** o agente carrega a skill quando a tarefa combina com a `description` dela.
+
+> As skills em `.github/skills/` e `.cursor/skills/` são cópias idênticas. Ao atualizar as skills,
+> sincronize as duas: `rsync -a --delete .github/skills/ .cursor/skills/`.
+
+Como tudo segue o padrão `SKILL.md`, também funciona em Claude Code e Codex (que leem
+`.claude/skills/`, `.agents/skills/` ou o `AGENTS.md`).
 
 ## Primeiros passos num projeto novo
 
@@ -67,9 +84,11 @@ As skills são **vendorizadas** (cópia local, editável). Para trazer a versão
 
 ```bash
 npx skills@latest add mattpocock/skills
+# depois, sincronize a cópia do Cursor com a do Copilot:
+rsync -a --delete .github/skills/ .cursor/skills/
 ```
 
-ou re-copie de https://github.com/mattpocock/skills para `.github/skills/`.
+ou re-copie de https://github.com/mattpocock/skills para `.github/skills/` e sincronize.
 
 ## Créditos & licença
 

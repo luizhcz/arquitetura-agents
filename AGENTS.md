@@ -13,7 +13,9 @@ de código, nomes de arquivos/comandos e termos técnicos consagrados.
 
 - **`src/`** — all application source code. This is where feature work, refactors, and fixes go.
 - **`.github/skills/`** — the [Matt Pocock skills](https://github.com/mattpocock/skills) library
-  (SKILL.md playbooks). Copilot also discovers these under `.claude/skills/` and `.agents/skills/`.
+  (SKILL.md playbooks) for GitHub Copilot.
+- **`.cursor/skills/`** — the same skills, in the location Cursor reads (`.cursor/rules/project.mdc`
+  holds Cursor's always-apply house rules). Keep both skill folders in sync.
 - Root — tooling and repo config.
 
 ## Conventions
