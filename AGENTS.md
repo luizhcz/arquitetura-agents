@@ -12,15 +12,14 @@ de código, nomes de arquivos/comandos e termos técnicos consagrados.
 ## Project layout
 
 - **`src/`** — all application source code. This is where feature work, refactors, and fixes go.
-- **`.github/skills/`** — the [Matt Pocock skills](https://github.com/mattpocock/skills) library
-  (SKILL.md playbooks) for GitHub Copilot.
-- **`.cursor/skills/`** — the same skills, in the location Cursor reads (`.cursor/rules/project.mdc`
-  holds Cursor's always-apply house rules). Keep both skill folders in sync.
+- **`.agents/skills/`** — the [Matt Pocock skills](https://github.com/mattpocock/skills) library
+  (SKILL.md playbooks). A single shared copy read by **both** GitHub Copilot and Cursor (and Codex).
+  House rules live in `.github/copilot-instructions.md` (Copilot) and `.cursor/rules/project.mdc` (Cursor).
 - Root — tooling and repo config.
 
 ## Conventions
 
-- Load the matching skill from `.github/skills/` before improvising; follow it.
+- Load the matching skill from `.agents/skills/` before improvising; follow it.
 - Build test-first (`tdd`). Plan with `to-spec` / `to-tickets`. Review with `code-review`.
 - Read `CONTEXT.md` (if present) for the project's ubiquitous language and respect ADRs.
 - Run `/setup-matt-pocock-skills` once per repository to wire up issue tracking and docs.

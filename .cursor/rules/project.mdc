@@ -9,7 +9,7 @@ alwaysApply: true
   nomes de arquivos/comandos e termos técnicos consagrados (commit, pull request, deploy).
 - **Todo o código de aplicação fica em `src/`.** Trate `src/` como raiz do projeto para features,
   refactors, review e correções; comece a explorar por lá.
-- **Prefira uma skill a improvisar.** Antes de escrever código, procure em `.cursor/skills/` um
+- **Prefira uma skill a improvisar.** Antes de escrever código, procure em `.agents/skills/` um
   playbook que combine e siga-o (invoque com `/` no chat ou deixe carregar automaticamente).
 - Construa test-first com `tdd`. Planeje com `to-spec` / `to-tickets`. Revise com `code-review`.
 - Se existir `CONTEXT.md` na raiz, leia para usar a linguagem ubíqua do projeto; respeite ADRs.

@@ -2,7 +2,7 @@
 
 House rules for GitHub Copilot (Agent Mode / CLI / code review) in this repository.
 These apply to every request. Detailed, task-specific playbooks live as **skills** in
-`.github/skills/` — load the relevant one instead of improvising.
+`.agents/skills/` — load the relevant one instead of improvising.
 
 ## Language / Idioma
 
@@ -20,7 +20,7 @@ apenas: identificadores de código, nomes de arquivos/comandos, e termos técnic
 
 ## How to work here
 
-- **Prefer a skill over ad-hoc behavior.** Before writing code, check `.github/skills/` for a
+- **Prefer a skill over ad-hoc behavior.** Before writing code, check `.agents/skills/` for a
   matching playbook and follow it. Skills are invocable as slash commands (e.g. `/tdd`,
   `/code-review`) and some load automatically when the task matches their description.
 - **Build features and fix bugs test-first** using the `tdd` skill (red → green → refactor).
@@ -38,7 +38,7 @@ labels, and documentation locations these skills read from and write to.
 
 ## Skill catalog
 
-Skills are grouped below. Full instructions are in each `.github/skills/<name>/SKILL.md`.
+Skills are grouped below. Full instructions are in each `.agents/skills/<name>/SKILL.md`.
 
 **Planning & specs:** `grill-me`, `grill-with-docs`, `to-spec`, `to-tickets`, `to-questionnaire`,
 `research`, `wayfinder`
